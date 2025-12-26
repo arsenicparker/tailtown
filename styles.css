@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Colors --- */
+:root {
+  --primary-color: #6A1B9A;      /* Deep Violet - Rich and elegant (Header, Price) */
+  --primary-dark: #4A148C;       /* Darker Purple for hover/active */
+  --primary-light: #EDE7F6;      /* Very light purple for subtle backgrounds */
+  --secondary-accent: #6A1B9A;  /* Bright Lavender/Violet for high-contrast CTA */
+  --text-color: #333;
+  --bg-color: #FAFAFA;
+  --card-bg: #fff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  cursor: pointer; /* Added cursor pointer for home button */
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+nav button {
+  background: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: all 0.3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/*Contact button */
+#btn-contact {
+  background: white;
+  color:  var(--primary-color);
+  font-weight: 700;
+}
+#btn-contact:hover {
+  background: var(--primary-dark) !important;
+  color: white !important;
+}
+
+nav button.filter-btn.active,
+nav button.filter-btn:hover {
+  background: var(--primary-dark);
+  color: white;
+  transform: translateY(-1px);
+}
+nav button.nav-link:not(.filter-btn) {
+    background: white;
+    color: var(--primary-color);
+}
+nav button.nav-link:not(.filter-btn):hover {
+    background: #f0f0f0;
+}
+
+
+.cart-icon {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+.cart-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Search Bar - Hidden on Contact Page */
+#search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-bar input {
+  width: 50%;
+  max-width: 600px;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.search-bar input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.2);
+}
+
+/* Products Grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+  height: 50px;
+  overflow: visible;
+  color: var(--primary-dark);
+}
+
+.price {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+/* ... (End of Product Card styles) ... */
+
+
+/* Add to Cart + Quantity */
+.controls {
+  margin-top: 15px;
+}
+
+
+/* QUANTITY CONTROLS */
+.qty-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px; /* Increased gap for separation */
+  margin-top: 5px;
+  border: none; 
+  border-radius: 0;
+  width: fit-content;
+  margin: 15px auto 0;
+  overflow: visible; 
+}
+
+.qty-controls button {
+  background: #f0f0f0; 
+  color: var(--primary-dark); 
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%; 
+  cursor: pointer;
+  font-size: 20px; 
+  font-weight: 600; 
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qty-controls button:hover {
+    background: var(--primary-light); 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.qty-num {
+    padding: 0 5px;
+    font-weight: 700; 
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+/* END OF QUANTITY CONTROLS */
+
+
+/* Cart Modal */
+.cart-item .qty-controls button {
+    width: 28px; 
+    height: 28px;
+    font-size: 16px;
+    gap: 10px;
+}
+
+.add-btn {
+  background: var(--secondary-accent);
+  color: white; 
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.add-btn:hover {
+  background: #4A148C; 
+  color: white; 
+  transform: translateY(-1px);
+}
+
+
+/* Contact Page Styles */
+#contact-page {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 25px;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 parts for form, 1 part for info */
+    gap: 60px;
+}
+
+.contact-form-area h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.contact-form-area p {
+    margin-bottom: 30px;
+    color: #666;
+    line-height: 1.5;
+}
+
+#contact-form .form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+#contact-form textarea {
+    resize: none;
+    margin-bottom: 20px;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 27, 154, 0.1);
+}
+
+.submit-btn {
+    background: #333; 
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.submit-btn:hover {
+    background: var(--primary-dark); 
+}
+
+.contact-info-area h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.contact-info-area h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.contact-info-area p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.contact-info-area a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.contact-info-area a:hover {
+    text-decoration: underline;
+}
+
+.contact-info-area strong {
+    font-weight: 700;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    margin-right: 10px;
+    font-weight: normal; 
+}
+.social-icons a:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+/*  Cart Modal Styles */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: flex-end;
+  align-items: flex-start;
+  z-index: 1001;
+}
+
+.cart-content {
+  background: white;
+  padding: 30px;
+  border-radius: 16px 0 0 16px;
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+  padding-bottom: 100px;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+.cart-content h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--primary-light);
+  font-size: 15px;
+}
+
+.cart-item > span:last-child {
+    font-weight: 600;
+    color: var(--primary-dark);
+    text-align: right;
+}
+
+.cart-summary {
+    border-top: 2px solid var(--primary-color);
+    padding-top: 15px;
+    margin-top: 15px;
+}
+.cart-summary div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.cart-total-final {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-accent);
+}
+
+
+.checkout-methods {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.checkout-methods button {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+  flex-grow: 1;
+  margin: 5px;
+}
+
+.checkout-methods button:hover {
+  background: var(--primary-dark);
+}
+
+.place-order {
+    background: var(--secondary-accent);
+    color: var(--text-color); 
+    margin-top: 10px;
+}
+
+.place-order:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+#btn-close-cart {
+    background: #aaa;
+    margin-top: 15px;
+    color: white; 
+    padding: 12px 15px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+    width: 100%;
+}
+#btn-close-cart:hover {
+    background: #888;
+}
+
+
+/* Forms in Cart */
+#upi-form, #cod-form {
+    background: var(--primary-light);
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,0.05);
+}
+#upi-form input, #cod-form input, #cod-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#upi-form button, #cod-form button {
+    width: auto;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: normal;
+    font-size: 14px;
+}
+#cancel-upi, #cancel-cod {
+    background: #dc3545;
+}
+#cancel-upi:hover, #cancel-cod:hover {
+    background: #c82333;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--primary-color);
+  color: white;
+  margin-top: 40px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Fullscreen Splash Banner */
+#splash-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  background: #fdfdfd;
+}
+
+#enter-site-btn {
+    position: absolute;
+    bottom: 40px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background-color: var(--secondary-accent);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s ease;
+}
+
+#enter-site-btn:hover {
+    background-color:  #4A148C;;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Hide the rest of the page until splash is closed */
+body.splash-active header,
+body.splash-active main,
+body.splash-active footer {
+  display: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    nav {
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    #search-container {
+        display: none !important; /* Hide search bar on small screens if needed */
+    }
+    .contact-container {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+        gap: 30px;
+    }
+    .contact-info-area {
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+}

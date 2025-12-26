@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tail Town — 15 Min Pet Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="splash-banner">
+  <img src="C:\Users\aayus\OneDrive\Tail Town web\tail town banner 2.png" alt="Tail Town Banner" class="banner-img" />
+
+  <button id="enter-site-btn">Meow on →</button>
+</div>
+  <header>
+    <div class="logo" id="btn-home">🐾 Tail Town</div> <nav>
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="dogfood">Dog Food</button>
+      <button class="filter-btn" data-cat="catfood">Cat Food</button>
+      <button class="filter-btn" data-cat="treat">Treats</button>
+      <button class="filter-btn" data-cat="toy">Toys</button>
+      <button class="filter-btn" data-cat="grooming">Grooming</button>
+      <button id="btn-contact" class="nav-link">Contact Us</button> </nav>
+    <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+  </header>
+
+  <div class="search-bar" id="search-container">
+    <input type="text" id="search-input" placeholder="🔍 Search for products (e.g. Whiskas, Rope Toy)..." />
+  </div>
+
+  <main>
+    <section class="products" id="product-list">
+      </section>
+
+    <section id="contact-page" class="hidden">
+      <div class="contact-container">
+        <div class="contact-form-area">
+          <h2>Write in to us</h2>
+          <p>If you've got questions about what's best for your pet, order related enquiries, about great products you're making, or if you're looking to work with us then drop us a line.</p>
+          
+          <form id="contact-form">
+            <div class="form-row">
+              <input type="text" name="Name" placeholder="Name" required />
+              <input type="email" name="Email" placeholder="Email" required />
+            </div>
+            <textarea name="Message" placeholder="Message" rows="8" required></textarea>
+            <button type="submit" class="submit-btn">Submit Now</button>
+          </form>
+        </div>
+
+        <div class="contact-info-area">
+          <h3>We'd love to hear from you</h3>
+          <p>Feel free to contact us if you have any questions or need help with your order.</p>
+          <p>You can WhatsApp or call us at <strong>+91 91087 58815 / +91 80500 96522 </strong></p>
+
+          <div class="info-block">
+            <h4>We're Open</h4>
+            <p>Our stores are open for shopping</p>
+            <p>Every day 8 am to 10:30 pm</p>
+          </div>
+
+          <div class="info-block">
+            <h4>Address</h4>
+            <p>TAILTOWN PETCARE SERVICES PRIVATE LIMITED</p>
+            <p>Tron Squire 3rd Floor, 30, Brownie Road, Bangalore – 5600999.</p>
+            <a href="#">See Our Stores</a>
+          </div>
+
+          <div class="info-block">
+            <h4>Social Media</h4>
+            <div class="social-icons">
+              <a href="#">f</a> 
+              <a href="#">i</a>
+              <a href="#">w</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cart-modal" id="cart-modal" aria-hidden="true">
+      <div class="cart-content">
+        <h2>🛍️ Your Cart</h2>
+        <div id="cart-items"></div>
+        
+        <div class="cart-summary">
+          <div>
+            <span>Subtotal:</span>
+            <span>₹<span id="cart-total">0</span></span> </div>
+          <div>
+            <span>Delivery (15 Mins):</span>
+            <span>₹<span id="cart-delivery">0</span></span> </div>
+          <div style="margin-top: 10px;">
+            <span class="cart-total-final-label">Order Total:</span>
+            <span class="cart-total-final">₹<span id="cart-total-final">0</span></span> </div>
+        </div>
+
+        <div class="checkout-methods">
+          <button id="btn-upi">Pay via UPI</button>
+          <button id="btn-cod">Cash on Delivery (COD)</button>
+        </div>
+
+        <form id="upi-form" class="hidden">
+          <h3>UPI Payment</h3>
+          <input type="text" id="upi-id" placeholder="💳 Enter UPI ID (e.g. name@upi)" required />
+          <button type="submit" class="place-order">✅ Pay & Place Order</button>
+          <button type="button" id="cancel-upi">❌ Cancel</button>
+        </form>
+
+        <form id="cod-form" class="hidden">
+          <h3>Cash on Delivery Details</h3>
+          <input type="text" id="cod-name" placeholder="👤 Full Name" required />
+          <textarea id="cod-address" placeholder="🏠 Delivery Address" required></textarea>
+          <input type="tel" id="cod-phone" placeholder="📞 Phone Number" required />
+          <button type="submit" class="place-order">✅ Place Order</button>
+          <button type="button" id="cancel-cod">❌ Cancel</button>
+        </form>
+
+        <button id="btn-close-cart">Close Cart</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Delivering your pet's happiness in 15 mins 🚀</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
